@@ -17,11 +17,15 @@
       <div class="row">
         <div class="col">
           <div class="d-flex justify-content-between p-1 p-sm-2 p-md-3">
-            <div class="logo d-flex">
+            <div class="logo d-flex align-items-center">
               <div class="logo-img"></div>
-              <span class="logo-text h1">BURGER-QUIZ</span>
+              <span class="logo-text h2">BURGER-QUIZ</span>
             </div>
-            <h1 class="contacts d-none d-md-block">GLO Academy</h1>
+            <!-- <div id="burger-btn">
+              <span class="burger-btn-span"></span>
+              <span class="burger-btn-span"></span>
+              <span class="burger-btn-span"></span>
+            </div> -->
           </div>
         </div>
       </div>
@@ -42,8 +46,8 @@
       <div class="row">
         <div class="col">
           <div class="d-flex flex-column align-items-center p-1 p-sm-2 p-md-3">
-            <h2 class="main-title text-center h1">Пройди тест и собери</h2>
-            <h2 class="main-title text-center h1">бургер своей мечты</h2>
+            <h2 class="main-title text-center h1">Take a quiz and build</h2>
+            <h2 class="main-title text-center h1">the burger of your dreams</h2>
           </div>
         </div>
       </div>
@@ -60,7 +64,7 @@
         <div class="col">
           <div class="d-flex justify-content-center p-1 p-sm-2 p-md-3">
             <button type="button" class="btn btn-outline-danger" id="btnOpenModal">
-              <span class="btnText h1">Пройди тест и получи результат</span>
+              <span class="btnText h1">START</span>
             </button>
           </div>
         </div>
@@ -73,7 +77,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Ответь на вопрос:</h5>
+          <h5 class="modal-title">Answer the question:</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeModal">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -108,7 +112,48 @@
     </div>
   </div>
 
-  <script src="./script/script.js"></script>
+  <!-- <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
+    //Read data once with get()
+    import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js";
+    //Read data once with an observer
+    // import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDuiNUZF6Xn_-BsMjh-m33eMQd-havnxWc",
+      authDomain: "burger-quiz-c3f4e.firebaseapp.com",
+      databaseURL: "https://burger-quiz-c3f4e-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "burger-quiz-c3f4e",
+      storageBucket: "burger-quiz-c3f4e.appspot.com",
+      messagingSenderId: "462040911843",
+      appId: "1:462040911843:web:ea373c50cfa6515d825ad6",
+      measurementId: "G-MV7Q4RJSF0"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase();
+    const questionsRef = ref(db, '/questions/');
+
+    //Read data once with get()
+    get(questionsRef).then(snapshots => {
+      if (snapshots.exists()) {
+        console.log(snapshots.val());
+      } else {
+        console.log('No data available');
+      }
+    }).catch(error => {
+      console.log(error);
+    })
+
+    //Read data once with an observer
+    //onValue(questionsRef, (snapshot) => {
+    //   const data = snapshot.val();
+    //   console.log(data);
+    // }, {
+    //   onlyOnce: true
+    // });
+  </script> -->
+  <script src="./script/script.js" type="module"></script>
 </body>
 
 </html>

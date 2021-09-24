@@ -1,72 +1,84 @@
 {
     "questions": [
         {
-            "question": "Какого цвета бургер?",
+            "question": "What color is the burger?",
             "answers": [
                 {
-                    "title": "Стандарт",
+                    "id": "11",
+                    "title": "Standard",
                     "url": "./image/burger.png"
                 },
                 {
-                    "title": "Черный",
+                    "id": "12",
+                    "title": "Black",
                     "url": "./image/burgerBlack.png"
                 }
             ],
             "type": "radio"
         },
         {
-            "question": "Из какого мяса котлета?",
+            "question": "What meat is the cutlet made from?",
             "answers": [
                 {
-                    "title": "Курица",
+                    "id": "21",
+                    "title": "Chicken",
                     "url": "./image/chickenMeat.png"
                 },
                 {
-                    "title": "Говядина",
+                    "id": "22",
+                    "title": "Beef",
                     "url": "./image/beefMeat.png"
                 },
                 {
-                    "title": "Свинина",
-                    "url": "./image/porkMeat.png"
+                    "id": "23",
+                    "title": "Vegan",
+                    "url": "./image/vegan.png"
                 }
             ],
             "type": "radio"
         },
         {
-            "question": "Дополнительные ингредиенты?",
+            "question": "Additional ingredients?",
             "answers": [
                 {
-                    "title": "Помидор",
+                    "id": "31",
+                    "title": "Tomato",
                     "url": "./image/tomato.png"
                 },
                 {
-                    "title": "Огурец",
+                    "id": "32",
+                    "title": "Cucumber",
                     "url": "./image/cucumber.png"
                 },
                 {
-                    "title": "Салат",
+                    "id": "33",
+                    "title": "Salad",
                     "url": "./image/salad.png"
                 },
                 {
-                    "title": "Лук",
+                    "id": "34",
+                    "title": "Onion",
                     "url": "./image/onion.png"
                 }
             ],
             "type": "checkbox"
         },
         {
-            "question": "Добавить соус?",
+            "question": "Add sauce?",
             "answers": [
                 {
-                    "title": "Чесночный",
+                    "id": "41",
+                    "title": "Garlic",
                     "url": "./image/sauce1.png"
                 },
                 {
-                    "title": "Томатный",
+                    "id": "42",
+                    "title": "Tomato",
                     "url": "./image/sauce2.png"
                 },
                 {
-                    "title": "Горчичный",
+                    "id": "43",
+                    "title": "Mustard",
                     "url": "./image/sauce3.png"
                 }
             ],
