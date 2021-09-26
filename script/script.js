@@ -131,6 +131,7 @@ const playTest = (questions) => {
         break;
 
       case numberQuestions === questions.length:
+        questionTitle.textContent = "";
         nextButton.classList.add("d-none");
         prevButton.classList.add("d-none");
         sendBtn.classList.remove("d-none");
@@ -144,6 +145,7 @@ const playTest = (questions) => {
         break;
 
       case numberQuestions === questions.length + 1:
+        questionTitle.textContent = "";
         sendBtn.classList.add("invisible");
         formAnswers.textContent = "Thank you for taking the quiz!";
         setTimeout(() => {
