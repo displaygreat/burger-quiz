@@ -1,0 +1,27 @@
+{
+  "name": "burger-quiz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/displaygreat/burger-quiz.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/displaygreat/burger-quiz/issues"
+  },
+  "homepage": "https://github.com/displaygreat/burger-quiz#readme",
+  "devDependencies": {
+    "webpack": "^5.54.0",
+    "webpack-cli": "^4.8.0"
+  },
+  "dependencies": {
+    "firebase": "^9.1.0"
+  }
+}

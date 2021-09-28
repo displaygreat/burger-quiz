@@ -1,95 +1,15 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
 import {
-  getDatabase,
-  ref,
-  get,
-  push,
-} from "https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js";
+  modalBlock,
+  questionTitle,
+  formAnswers,
+  nextButton,
+  prevButton,
+  sendBtn,
+} from "./variables.js";
 
-const btnOpenModal = document.querySelector("#btnOpenModal");
-const modalBlock = document.querySelector("#modalBlock");
-const closeModal = document.querySelector("#closeModal");
-const questionTitle = document.querySelector("#question");
-const formAnswers = document.querySelector("#formAnswers");
-const nextButton = document.querySelector("#next");
-const prevButton = document.querySelector("#prev");
-// const burgerBtn = document.getElementById("burger-btn");
-const sendBtn = document.getElementById("send");
+import { sendData } from "./firebase.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDuiNUZF6Xn_-BsMjh-m33eMQd-havnxWc",
-  authDomain: "burger-quiz-c3f4e.firebaseapp.com",
-  databaseURL:
-    "https://burger-quiz-c3f4e-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "burger-quiz-c3f4e",
-  storageBucket: "burger-quiz-c3f4e.appspot.com",
-  messagingSenderId: "462040911843",
-  appId: "1:462040911843:web:ea373c50cfa6515d825ad6",
-  measurementId: "G-MV7Q4RJSF0",
-};
-
-const app = initializeApp(firebaseConfig);
-
-const getData = () => {
-  formAnswers.textContent = "LOAD";
-
-  nextButton.classList.add("d-none");
-  prevButton.classList.add("d-none");
-
-  setTimeout(() => {
-    const db = getDatabase();
-    const questionsRef = ref(db, "/questions/");
-
-    //Read data once with get()
-    get(questionsRef)
-      .then((snapshots) => {
-        if (snapshots.exists()) {
-          playTest(snapshots.val());
-        } else {
-          console.log("No data available");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, 2000);
-
-  //get question from questions.json
-  // setTimeout(() => {
-  //   fetch("./questions.json")
-  //     .then((res) => res.json())
-  //     .then((data) => playTest(data.questions))
-  //     .catch((err) => {
-  //       formAnswers.textContent = "Server error";
-  //       console.log(err);
-  //     });
-  // }, 2000);
-};
-
-// if (document.documentElement.clientWidth < 768) {
-//   burgerBtn.style.display = "flex";
-// } else {
-//   burgerBtn.style.display = "none";
-// }
-
-// window.addEventListener("resize", () => {
-//   if (document.documentElement.clientWidth < 768) {
-//     burgerBtn.style.display = "flex";
-//   } else {
-//     burgerBtn.style.display = "none";
-//   }
-// });
-
-btnOpenModal.addEventListener("click", () => {
-  modalBlock.classList.add("d-block");
-  getData();
-});
-
-closeModal.addEventListener("click", () => {
-  modalBlock.classList.remove("d-block");
-});
-
-const playTest = (questions) => {
+export const playTest = (questions) => {
   const finalAnswers = [];
   let numberQuestions = 0;
 
@@ -188,8 +108,6 @@ const playTest = (questions) => {
     checkAnswers();
     numberQuestions++;
     renderQuestions(numberQuestions);
-    const db = getDatabase();
-    const questionsRef = ref(db, "/contacts/");
-    push(questionsRef, finalAnswers);
+    sendData(finalAnswers);
   };
 };
