@@ -112,34 +112,32 @@ label span {
     /* -webkit-text-stroke-color: black;  */
 }
 
-.btn-outline-danger {
-    display: flex;
-    align-items: center;
-    background-color: var(--orange);
+.btn{
+    display: flex !important;
+    background-color: var(--orange) !important;
     color: var(--yellow) !important;
-    padding: .375rem 1.5rem;
 }
 
-.btn-outline-danger:hover,
-.btn-outline-danger:active,
-.btn-outline-danger:focus,
-.btn-outline-danger:visited{
-    background-color: var(--yellow) !important;
+.btn:hover,
+.btn:active,
+.btn:focus,
+.btn:visited{
+    background-color: var(--yellow);
     border-color: var(--yellow);
 }
 
-.btn-outline-danger:hover span,
-.btn-outline-danger:active span,
-.btn-outline-danger:focus span,
-.btn-outline-danger:visited span{
-    color: #fff !important;
+.btn:hover span,
+.btn:active span,
+.btn:focus span,
+.btn:visited span{
+    color: #fff;
 }
 
-.btn-text {
+.btn .btn-text {
     font-weight: 700;
 }
 
-.btn-outline-danger .logo-img {
+.btn .logo-img {
     width: 50px;
     height: 50px;
     margin-right: 0;

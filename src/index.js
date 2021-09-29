@@ -1,5 +1,7 @@
-import { btnOpenModal, closeModal } from "./variables.js";
-import { getData } from "./firebase.js";
+import { btnOpenModal, closeModal } from "./js/variables.js";
+import { getData } from "./js/firebase.js";
+import "./styles/style.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 btnOpenModal.addEventListener("click", () => {
   modalBlock.classList.add("d-block");
