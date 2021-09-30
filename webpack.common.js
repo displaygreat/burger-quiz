@@ -9,6 +9,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "./dist"),
     filename: "[name].bundle.js",
+    publicPath: "/burger-quiz/",
   },
   // Customize the webpack build process
   plugins: [
