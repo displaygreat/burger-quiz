@@ -17,17 +17,7 @@ module.exports = merge(common, {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            options: {
-              importLoaders: 2,
-              sourceMap: false,
-              modules: true,
-            },
-          },
-        ],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
     ],
   },
@@ -39,11 +29,7 @@ module.exports = merge(common, {
     }),
   ],
   optimization: {
-    minimize: true,
-    minimizer: [new CssMinimizerPlugin(), "..."],
-    runtimeChunk: {
-      name: "runtime",
-    },
+    minimizer: [new CssMinimizerPlugin()],
   },
   performance: {
     hints: false,
