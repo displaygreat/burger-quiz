@@ -1,6 +1,7 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 // const GoogleFontsPlugin = require("@beyonk/google-fonts-webpack-plugin");
 
 module.exports = {
@@ -25,6 +26,19 @@ module.exports = {
     // new GoogleFontsPlugin({
     //   fonts: [{ family: "Lato", variants: ["300", "400", "700"] }],
     // }),
+    // new ImageMinimizerPlugin({
+    //   minimizerOptions: {
+    //     plugins: ["gifsicle", "jpegtran", "optipng", "svgo"],
+    //   },
+    // }),
+    new ImageMinimizerPlugin({
+      deleteOriginalAssets: false,
+      test: /\.(jpe?g|png|gif|svg)$/i,
+      filename: "[path][name].webp",
+      minimizerOptions: {
+        plugins: ["imagemin-webp"],
+      },
+    }),
   ],
 
   // Determine how modules within the project are treated
@@ -36,10 +50,24 @@ module.exports = {
         use: ["babel-loader"],
       },
       // Images: Copy image files to build folder
-      {
-        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-        type: "asset/resource",
-      },
+      // {
+      //   test: /\.(jpe?g|png|gif|svg)$/i,
+      //   use: [
+      //     {
+      //       test: /\.(jpe?g|png|gif|svg)$/i,
+      //       type: "asset",
+      //     },
+      //     {
+      //       loader: ImageMinimizerPlugin.loader,
+      //       options: {
+      //         filename: "[path][name].webp",
+      //         minimizerOptions: {
+      //           plugins: ["imagemin-webp"],
+      //         },
+      //       },
+      //     },
+      //   ],
+      // },
     ],
   },
 };
