@@ -6,12 +6,12 @@
                 {
                     "id": "11",
                     "title": "Seasame Seed Bun",
-                    "url": "./image/seasame-seed-bun.jpg"
+                    "url": "./images/seasame-seed-bun.jpg"
                 },
                 {
                     "id": "12",
                     "title": "Whole Weat Bun",
-                    "url": "./image/whole-wheat-bun.jpg"
+                    "url": "./images/whole-wheat-bun.jpg"
                 }
             ],
             "type": "radio"
@@ -22,17 +22,17 @@
                 {
                     "id": "21",
                     "title": "Chicken",
-                    "url": "./image/chicken.webp"
+                    "url": "./images/chicken.webp"
                 },
                 {
                     "id": "22",
                     "title": "Beef",
-                    "url": "./image/beef.webp"
+                    "url": "./images/beef.webp"
                 },
                 {
                     "id": "23",
                     "title": "Vegan",
-                    "url": "./image/veggie.webp"
+                    "url": "./images/veggie.webp"
                 }
             ],
             "type": "radio"
@@ -43,17 +43,17 @@
                 {
                     "id": "31",
                     "title": "Tomato",
-                    "url": "./image/tomato.webp"
+                    "url": "./images/tomato.webp"
                 },
                 {
                     "id": "32",
                     "title": "Lettuce",
-                    "url": "./image/lettuce.webp"
+                    "url": "./images/lettuce.webp"
                 },
                 {
                     "id": "33",
                     "title": "Onion",
-                    "url": "./image/onion.webp"
+                    "url": "./images/onion.webp"
                 }
             ],
             "type": "checkbox"
@@ -64,17 +64,17 @@
                 {
                     "id": "41",
                     "title": "Garlic",
-                    "url": "./image/garlic-sauce.webp"
+                    "url": "./images/garlic-sauce.webp"
                 },
                 {
                     "id": "42",
                     "title": "Ketchup",
-                    "url": "./image/ketchup.png"
+                    "url": "./images/ketchup.png"
                 },
                 {
                     "id": "43",
                     "title": "Mustard",
-                    "url": "./image/mustard.png"
+                    "url": "./images/mustard.png"
                 }
             ],
             "type": "radio"
