@@ -14,6 +14,7 @@ module.exports = merge(common, {
   // Spin up a server for quick development
   devServer: {
     static: "./dist",
+    hot: true,
   },
 
   module: {
