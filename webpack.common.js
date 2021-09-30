@@ -1,6 +1,7 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+// const GoogleFontsPlugin = require("@beyonk/google-fonts-webpack-plugin");
 
 module.exports = {
   // Where webpack looks to start building the bundle
@@ -21,6 +22,9 @@ module.exports = {
       template: "./src/template.html", // template file
       filename: "index.html", // output file
     }),
+    // new GoogleFontsPlugin({
+    //   fonts: [{ family: "Lato", variants: ["300", "400", "700"] }],
+    // }),
   ],
 
   // Determine how modules within the project are treated
@@ -35,12 +39,6 @@ module.exports = {
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
         type: "asset/resource",
-      },
-
-      // Fonts and SVGs: Inline files
-      {
-        test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
-        type: "asset/inline",
       },
     ],
   },

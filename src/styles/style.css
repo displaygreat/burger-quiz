@@ -16,8 +16,8 @@ body {
     min-height: 100vh;
     background: url('../image/blob-orange.svg') no-repeat bottom right 40%,
                 url('../image/blob-green.svg') no-repeat  center / 120%;
-    font-family: 'Lato', sans-serif;
-    color: var(--text-black);
+    font-family: 'Lato', sans-serif !important;
+    color: var(--text-black) !important;
 }
 
 li {
@@ -85,13 +85,13 @@ label span {
     margin-right: 10px;
 }
 
-.logo-text {
+.logo .logo-text {
     color: var(--yellow);
     font-weight: 700;
 }
 
 .logo-text, .contacts, .main-title, .btn-text {
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
 }
 
 .content {
@@ -112,24 +112,24 @@ label span {
     /* -webkit-text-stroke-color: black;  */
 }
 
-.btn{
+.btn {
     display: flex !important;
     background-color: var(--orange) !important;
     color: var(--yellow) !important;
+    align-items: center;
 }
 
 .btn:hover,
 .btn:active,
 .btn:focus,
 .btn:visited{
-    background-color: var(--yellow);
-    border-color: var(--yellow);
+    background-color: var(--yellow) !important;
 }
 
-.btn:hover span,
-.btn:active span,
-.btn:focus span,
-.btn:visited span{
+.btn:hover .btn-text,
+.btn:active .btn-text,
+.btn:focus .btn-text,
+.btn:visited  .btn-text {
     color: #fff;
 }
 
