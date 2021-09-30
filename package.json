@@ -15,6 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/displaygreat/burger-quiz.git"
   },
+  "homepage": "https://github.com/displaygreat/burger-quiz",
   "devDependencies": {
     "@babel/core": "^7.15.5",
     "@babel/plugin-proposal-class-properties": "^7.14.5",
