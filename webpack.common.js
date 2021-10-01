@@ -15,7 +15,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "./dist"),
     filename: "[name].bundle.js",
+    // assetModuleFilname: "assets/[hash][ext][query]",
   },
+
   // Customize the webpack build process
   plugins: [
     // Removes/cleans build folders and unused assets when rebuilding
@@ -32,13 +34,17 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: "./src/assets/images/**/**",
+          from: "./src/images/**/**",
           to: "./images/[name].webp",
         },
+        // {
+        //   from: "./src/assets",
+        //   to: "./assets/[hash].webp",
+        // },
       ],
     }),
     new ImageminPlugin({
-      plugins: [ImageminWebP({ quality: 75 })],
+      plugin: [ImageminWebP({ quality: 50 })],
     }),
 
     // new ImageMinimizerPlugin({
@@ -67,6 +73,25 @@ module.exports = {
       },
 
       // Images: Copy image files to build folder
+      {
+        test: /\.(png|jpe?g|svg)$/i,
+        type: "asset",
+        generator: {
+          filename: "assets/[hash].webp",
+        },
+        use: [
+          {
+            loader: ImageMinimizerPlugin.loader,
+            options: {
+              deleteOriginalAssets: true,
+              minimizerOptions: {
+                plugins: [["imagemin-webp", { quality: 50 }]],
+              },
+            },
+          },
+        ],
+      },
+
       // {
       //   test: /\.(jpe?g|png)$/i,
       //   use: [
