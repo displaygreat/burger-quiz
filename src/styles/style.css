@@ -14,8 +14,8 @@
 }
 body {
     min-height: 100vh;
-    background: url('../images/blob-orange.svg') no-repeat bottom right 40%,
-                url('../images/blob-green.svg') no-repeat  center / 120%;
+    background: url('../assets/blob-orange.svg') no-repeat bottom right 40%,
+                url('../assets/blob-green.svg') no-repeat  center / 120%;
     font-family: 'Lato', sans-serif !important;
     color: var(--text-black) !important;
 }
@@ -80,7 +80,7 @@ label span {
 .logo-img {
     width: 30px;
     height: 30px;
-    background: url('../images/burger.png') center no-repeat;
+    background: url('../assets/images/burger.png') center no-repeat;
     background-size: contain;
     margin-right: 10px;
 }
@@ -97,7 +97,7 @@ label span {
 .content {
     width: 300px;
     height: 300px;
-    background: url('../images/hero-burger.png') no-repeat;
+    background: url('../assets/images/hero-burger.png') no-repeat;
     background-size: 300px 300px;
 }
 

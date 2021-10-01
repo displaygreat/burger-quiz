@@ -1,7 +1,5 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-// const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
-
 const { merge } = require("webpack-merge");
 
 const path = require("path");
@@ -21,20 +19,6 @@ module.exports = merge(common, {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
-      // {
-      //   test: /\.(jpe?g|png)$/i,
-      //   use: [
-      //     {
-      //       loader: ImageMinimizerPlugin.loader,
-      //       options: {
-      //         filename: "images/[name].webp",
-      //         minimizerOptions: {
-      //           plugins: ["imagemin-webp"],
-      //         },
-      //       },
-      //     },
-      //   ],
-      // },
     ],
   },
   plugins: [

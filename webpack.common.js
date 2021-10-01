@@ -2,12 +2,9 @@ const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-
-// const imagemin = require("imagemin");
-// const webp = require("imagemin-webp");
-// const ImageminWebpackPlugin = require("imagemin-webpack-plugin").default;
-// const ImageminWebP = require("imagemin-webp");
-// const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+const ImageminPlugin = require("imagemin-webpack-plugin").default;
+const ImageminWebP = require("imagemin-webp");
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
 // const GoogleFontsPlugin = require("@beyonk/google-fonts-webpack-plugin");
 
@@ -24,45 +21,36 @@ module.exports = {
     // Removes/cleans build folders and unused assets when rebuilding
     new CleanWebpackPlugin(),
     // Generates an HTML file from a template
+    new HtmlWebpackPlugin({
+      title: "Burger Quiz",
+      favicon: "./src/assets/favicon.png",
+      template: "./src/template.html", // template file
+      filename: "index.html", // output file
+    }),
+
     // Copies files from target to destination folder
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, "./src/images"),
-          to: "images",
-          noErrorOnMissing: true,
+          from: "./src/assets/images/**/**",
+          to: "./images/[name].webp",
         },
       ],
     }),
-
-    // imagemin(["src/images/*.{jpg,png}"], {
-    //   destination: "./images/[name].webp",
-    //   plugins: [webp({ quality: 75 })],
-    // }),
-
-    // new ImageminWebpackPlugin({
-    //   plugins: [
-    //     ImageminWebP({
-    //       quality: 75,
-    //     }),
-    //   ],
-    // }),
+    new ImageminPlugin({
+      plugins: [ImageminWebP({ quality: 75 })],
+    }),
 
     // new ImageMinimizerPlugin({
     //   deleteOriginalAssets: false,
-    //   test: /\.(jpe?g|png|gif|svg)$/i,
-    //   filename: "[path][name].webp",
+    //   test: /\.(jpe?g|png)$/i,
+    //   filename: "[name].webp",
+    //   // test: /\.(jpe?g|png|gif|svg)$/i,
+    //   // filename: "[path][name].webp",
     //   minimizerOptions: {
     //     plugins: ["imagemin-webp"],
     //   },
     // }),
-
-    new HtmlWebpackPlugin({
-      title: "Burger Quiz",
-      favicon: "./src/images/favicon.png",
-      template: "./src/template.html", // template file
-      filename: "index.html", // output file
-    }),
 
     // new GoogleFontsPlugin({
     //   fonts: [{ family: "Lato", variants: ["300", "400", "700"] }],
@@ -77,7 +65,24 @@ module.exports = {
         test: /\.js$/,
         use: ["babel-loader"],
       },
-      //Images: Copy image files to build folder
+
+      // Images: Copy image files to build folder
+      // {
+      //   test: /\.(jpe?g|png)$/i,
+      //   use: [
+      //     {
+      //       loader: ImageMinimizerPlugin.loader,
+      //       options: {
+      //         deleteOriginalAssets: true,
+      //         filename: "[contenthash].webp",
+      //         minimizerOptions: {
+      //           plugins: ["imagemin-webp"],
+      //         },
+      //       },
+      //     },
+      //   ],
+      //   type: "asset/resource",
+      // },
     ],
   },
 };
