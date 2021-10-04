@@ -3,8 +3,8 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ImageminPlugin = require("imagemin-webpack-plugin").default;
-const ImageminWebP = require("imagemin-webp");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+// const ImageminWebP = require("imagemin-webp");
 
 // const GoogleFontsPlugin = require("@beyonk/google-fonts-webpack-plugin");
 
@@ -29,7 +29,6 @@ module.exports = {
       template: "./src/template.html", // template file
       filename: "index.html", // output file
     }),
-
     // Copies files from target to destination folder
     new CopyWebpackPlugin({
       patterns: [
@@ -37,25 +36,12 @@ module.exports = {
           from: "./src/images/**/**",
           to: "./images/[name].webp",
         },
-        // {
-        //   from: "./src/assets",
-        //   to: "./assets/[hash].webp",
-        // },
       ],
     }),
-    new ImageminPlugin({
-      plugin: [ImageminWebP({ quality: 50 })],
-    }),
+    new ImageminPlugin(),
 
-    // new ImageMinimizerPlugin({
-    //   deleteOriginalAssets: false,
-    //   test: /\.(jpe?g|png)$/i,
-    //   filename: "[name].webp",
-    //   // test: /\.(jpe?g|png|gif|svg)$/i,
-    //   // filename: "[path][name].webp",
-    //   minimizerOptions: {
-    //     plugins: ["imagemin-webp"],
-    //   },
+    // new ImageminPlugin({
+    //   plugins: [ImageminWebP({ quality: 50 })],
     // }),
 
     // new GoogleFontsPlugin({
@@ -72,10 +58,10 @@ module.exports = {
         use: ["babel-loader"],
       },
 
-      // Images: Copy image files to build folder
+      //Images: Copy image files to build folder
       {
-        test: /\.(png|jpe?g|svg)$/i,
-        type: "asset",
+        test: /\.(png|jpe?g)$/i,
+        type: "asset/resource",
         generator: {
           filename: "assets/[hash].webp",
         },
@@ -91,23 +77,25 @@ module.exports = {
           },
         ],
       },
-
       // {
-      //   test: /\.(jpe?g|png)$/i,
+      //   test: /\.svg$/i,
+      //   type: "asset/inline",
       //   use: [
       //     {
       //       loader: ImageMinimizerPlugin.loader,
       //       options: {
       //         deleteOriginalAssets: true,
-      //         filename: "[contenthash].webp",
       //         minimizerOptions: {
-      //           plugins: ["imagemin-webp"],
+      //           plugins: ["svgo"],
       //         },
       //       },
       //     },
       //   ],
-      //   type: "asset/resource",
       // },
+      {
+        test: /\.svg$/i,
+        type: "asset",
+      },
     ],
   },
 };
